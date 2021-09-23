@@ -1,7 +1,8 @@
 import requests
 import json
 
-word_choice = input("What word: \n")
+word_choice = input("\nWhat word: \n")
+
 
 url = f'https://wordsapiv1.p.rapidapi.com/words/{word_choice}/definitions'
 
@@ -12,9 +13,23 @@ headers = {
 
 response = requests.request("GET", url, headers=headers)
 
-definitions = response.text
 
-json_data = json.loads(definitions)
+def definiton():
+    definitions = response.text
+    json_data = json.loads(definitions)
+    def_data = json_data['definitions']
 
-print(word_choice)
-print(json_data["definitions"])
+    for x in def_data:
+        for y in x:
+            if y == 'definition':
+                print('Definition:')
+            else:
+                print("Part of Speech:")
+            print(x[y])
+        print()
+
+def main():
+    print()
+    definiton()
+
+main()
