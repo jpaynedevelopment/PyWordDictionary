@@ -8,7 +8,7 @@ url = f'https://wordsapiv1.p.rapidapi.com/words/{word_choice}/definitions'
 
 headers = {
     'x-rapidapi-host': "wordsapiv1.p.rapidapi.com",
-    'x-rapidapi-key': "Replace your own API key"
+    'x-rapidapi-key': "replace with your own api key"
     }
 
 response = requests.request("GET", url, headers=headers)
